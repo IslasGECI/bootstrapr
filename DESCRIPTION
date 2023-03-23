@@ -1,5 +1,5 @@
-Package: templater
-Title: Template for R projects
+Package: bootstrapr
+Title: Bootstrapping tools
 Authors@R: c(
     person(given = "Ciencia de Datos",
            family = "GECI",
@@ -7,7 +7,7 @@ Authors@R: c(
            email = "ciencia.datos@islas.org.mx"
            ))
 Config/testthat/edition: 3
-Description: Plantilla de Ciencia de Datos en GECI para proyectos en R
+Description: Herraminetas para trabajar con la técnica de remuestro Bootstrap en R
 Encoding: UTF-8
 Imports:
     R6,
