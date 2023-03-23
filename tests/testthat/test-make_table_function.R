@@ -1,3 +1,5 @@
+library(tidyverse)
+
 describe("make_table()", {
   it("check round", {
     data <- read_csv("/workdir/tests/data/densidad_madrigueras_mergulo_morro.csv", show_col_types = FALSE)
