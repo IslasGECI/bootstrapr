@@ -17,6 +17,12 @@ make_table <- function(data) {
   return(table)
 }
 
+.add_min_max_central_columns_without_round <- function(table) {
+  table <- table %>%
+    mutate("minimo" = q3 - q1, "maximo" = q5 - q3, "central" = q3)
+  return(table)
+}
+
 .setup_table <- function(data) {
   ntemporadas <- ncol(data)
   table <- make_cuantiles(data, 1)
@@ -30,8 +36,7 @@ make_table <- function(data) {
 make_table_without_round <- function(data) {
   temporada <- names(data)
   table <- .setup_table(data)
-  table <- table %>%
-    mutate("minimo" = q3 - q1, "maximo" = q5 - q3, "central" = q3) %>%
+  table <- .add_min_max_central_columns_without_round(table) %>%
     cbind(temporada) %>%
     select(c("temporada", "central", "minimo", "maximo"))
   return(table)
