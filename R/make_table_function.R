@@ -1,18 +1,17 @@
 library(tidyverse)
 
 make_table <- function(data) {
-  temporada <- names(data)
-  table <- .setup_table(data)
-  round_number <- 2
-  table <- .add_min_max_central_columns(table) %>%
-    .select_right_columns(temporada)
-  return(table)
+  make_table_round(data, round = TRUE)
 }
 
 make_table_without_round <- function(data) {
+  make_table_round(data, round = FALSE)
+}
+
+make_table_round <- function(data, round) {
   temporada <- names(data)
   table <- .setup_table(data)
-  table <- .add_min_max_central_columns_without_round(table) %>%
+  table <- .add_min_max_central_columns_round(table, round) %>%
     .select_right_columns(temporada)
   return(table)
 }
@@ -22,6 +21,13 @@ make_table_without_round <- function(data) {
     cbind(temporada) %>%
     select(c("temporada", "central", "minimo", "maximo"))
   return(table_with_right_columns)
+}
+
+.add_min_max_central_columns_round <- function(table, round) {
+  if (round) {
+    return(.add_min_max_central_columns(table))
+  }
+  return(.add_min_max_central_columns_without_round(table))
 }
 
 .add_min_max_central_columns <- function(table) {
@@ -46,4 +52,3 @@ make_table_without_round <- function(data) {
   }
   return(table)
 }
-
