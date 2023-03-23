@@ -15,3 +15,19 @@ make_table <- function(data) {
     select(c("temporada", "central", "minimo", "maximo"))
   return(table)
 }
+
+
+make_table_without_round <- function(data) {
+  temporada <- names(data)
+  ntemporadas <- length(temporada)
+  table <- make_cuantiles(data, 1)
+  for (i in 2:ntemporadas) {
+    quantil <- make_cuantiles(data, i)
+    table <- rbind(table, quantil)
+  }
+  table <- table %>%
+    mutate("minimo" = q3 - q1, "maximo" = q5 - q3, "central" = q3) %>%
+    cbind(temporada) %>%
+    select(c("temporada", "central", "minimo", "maximo"))
+  return(table)
+}
