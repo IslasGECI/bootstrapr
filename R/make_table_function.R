@@ -5,9 +5,23 @@ make_table <- function(data) {
   table <- .setup_table(data)
   round_number <- 2
   table <- .add_min_max_central_columns(table) %>%
+    .select_right_columns(temporada)
+  return(table)
+}
+
+make_table_without_round <- function(data) {
+  temporada <- names(data)
+  table <- .setup_table(data)
+  table <- .add_min_max_central_columns_without_round(table) %>%
+    .select_right_columns(temporada)
+  return(table)
+}
+
+.select_right_columns <- function(table, temporada) {
+  table_with_right_columns <- table %>%
     cbind(temporada) %>%
     select(c("temporada", "central", "minimo", "maximo"))
-  return(table)
+  return(table_with_right_columns)
 }
 
 .add_min_max_central_columns <- function(table) {
@@ -33,11 +47,3 @@ make_table <- function(data) {
   return(table)
 }
 
-make_table_without_round <- function(data) {
-  temporada <- names(data)
-  table <- .setup_table(data)
-  table <- .add_min_max_central_columns_without_round(table) %>%
-    cbind(temporada) %>%
-    select(c("temporada", "central", "minimo", "maximo"))
-  return(table)
-}
