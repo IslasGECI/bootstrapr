@@ -1,3 +1,3 @@
 library(testthat)
-library(templater)
-test_check("templater")
+library(bootstrapr)
+test_check("bootstrapr")
