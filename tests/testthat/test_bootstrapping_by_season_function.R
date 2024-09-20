@@ -20,7 +20,7 @@ describe("Prueba que hace el remuestreo", {
   resampling_number <- 3
   temporada <- c(2018, 2019, 2018, 2019, 2019)
   interes <- c(12, 23, 34, 45, 56)
-  datos <- tibble(temporada, interes)
+  datos <- readr::tibble(temporada, interes)
 
   it("expect ones", {
     scalar <- 1
@@ -35,7 +35,7 @@ describe("Prueba que hace el remuestreo", {
   it("expect twos with three years", {
     temporada <- c(2018, 2019, 2018, 2019, 2019, 2017)
     interes_3 <- c(12, 23, 34, 45, 56, 11)
-    datos <- tibble(temporada, interes_3)
+    datos <- readr::tibble(temporada, interes_3)
 
     scalar <- 2
     a_function <- function_dos

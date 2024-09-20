@@ -1,6 +1,6 @@
 library("tidyverse")
 
-unos <- tibble("interes" = c(1, 1, 1))
+unos <- tibble::tibble("interes" = c(1, 1, 1))
 function_uno <- function(datos) {
   return(1)
 }

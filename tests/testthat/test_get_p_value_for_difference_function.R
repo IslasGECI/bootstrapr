@@ -1,9 +1,7 @@
-library("tidyverse")
-
-ones <- tibble(c(1, 1, 1))
-twos <- tibble(c(2, 2, 2))
-almost_ones <- tibble(c(0.99, 0.99, 0.99, 0.99))
-no_ones <- tibble(c(1.01, 0.99, 0.99, 0.99))
+ones <- tibble::tibble(c(1, 1, 1))
+twos <- tibble::tibble(c(2, 2, 2))
+almost_ones <- tibble::tibble(c(0.99, 0.99, 0.99, 0.99))
+no_ones <- tibble::tibble(c(1.01, 0.99, 0.99, 0.99))
 
 test_that("Los valores de p valor son los correctos", {
   expect_equal(get_p_value_for_difference(ones, ones), c(1))
