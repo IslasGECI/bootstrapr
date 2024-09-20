@@ -12,3 +12,10 @@ parameter](https://github.com/IslasGECI/bootstrapr/actions/workflows/actions.yml
 
 ## Step to use
 
+
+[codecov_badge]: https://codecov.io/gh/IslasGECI/bootstrapr/graph/badge.svg?token=h8tsRYtEdS
+[codecov]: https://codecov.io/gh/IslasGECI/bootstrapr
+[repo_licence]: https://img.shields.io/github/license/IslasGECI/bootstrapr
+[language_badge]: https://img.shields.io/github/languages/top/IslasGECI/bootstrapr
+[commits_badge]: https://img.shields.io/github/commit-activity/y/IslasGECI/bootstrapr
+[R_badge]: https://img.shields.io/github/r-package/v/IslasGECI/bootstrapr
