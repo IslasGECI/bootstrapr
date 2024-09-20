@@ -4,8 +4,8 @@ get_p_value_for_difference <- function(before_distribution, after_distribution) 
   validate_input(before_distribution, after_distribution)
   set.seed(5)
   n_distribution <- nrow(before_distribution)
-  before_sample <- sample_n(before_distribution, n_distribution)
-  after_sample <- sample_n(after_distribution, n_distribution)
+  before_sample <- dplyr::sample_n(before_distribution, n_distribution)
+  after_sample <- dplyr::sample_n(after_distribution, n_distribution)
   differences <- before_sample[[1]] - after_sample[[1]]
   positive_difference <- sum(differences > 0) / n_distribution
   negative_difference <- sum(differences < 0) / n_distribution

@@ -12,13 +12,13 @@ test_that("Los valores de p valor son los correctos", {
 
 describe("validate_input()", {
   it("should PASS if both inputs are tibbles", {
-    expect_no_error(validate_input(tibble(), tibble()))
+    expect_no_error(validate_input(tibble::tibble(), tibble::tibble()))
   })
   it("should FAIL if first input is not a tibble", {
-    expect_error(validate_input(1, tibble()))
+    expect_error(validate_input(1, tibble::tibble()))
   })
   it("should FAIL if second input is not a tibble", {
-    expect_error(validate_input(tibble(), 1))
+    expect_error(validate_input(tibble::tibble(), 1))
   })
   it("should FAIL if tibbles have different number of columns", {
     expect_no_error(validate_input(ones, twos))
