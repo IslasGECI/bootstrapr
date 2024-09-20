@@ -10,8 +10,8 @@ Config/testthat/edition: 3
 Description: Herraminetas para trabajar con la técnica de remuestro Bootstrap en R
 Encoding: UTF-8
 Imports:
-    R6,
-    tidyverse
+    dplyr,
+    tibble
 LazyData: true
 License: AGPL-3.0-or-later
 Roxygen: list(markdown = TRUE)

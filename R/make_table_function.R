@@ -1,5 +1,3 @@
-library(tidyverse)
-
 make_table <- function(data) {
   make_table_round(data, round = TRUE)
 }
@@ -11,15 +9,15 @@ make_table_without_round <- function(data) {
 make_table_round <- function(data, round) {
   temporada <- names(data)
   table <- .setup_table(data)
-  table <- .add_min_max_central_columns_round(table, round) %>%
+  table <- .add_min_max_central_columns_round(table, round) |>
     .select_right_columns(temporada)
   return(table)
 }
 
 .select_right_columns <- function(table, temporada) {
-  table_with_right_columns <- table %>%
-    cbind(temporada) %>%
-    dplyr::select(c("temporada", "central", "minimo", "maximo"))
+  table_with_right_columns <- table |>
+    cbind(temporada) |>
+    dplyr::select(dplyr::all_of(c("temporada", "central", "minimo", "maximo")))
   return(table_with_right_columns)
 }
 
@@ -32,13 +30,13 @@ make_table_round <- function(data, round) {
 
 .add_min_max_central_columns <- function(table) {
   round_number <- 2
-  table <- table %>%
+  table <- table |>
     dplyr::mutate("minimo" = round(q3 - q1, round_number), "maximo" = round(q5 - q3, round_number), "central" = round(q3, round_number))
   return(table)
 }
 
 .add_min_max_central_columns_without_round <- function(table) {
-  table <- table %>%
+  table <- table |>
     dplyr::mutate("minimo" = q3 - q1, "maximo" = q5 - q3, "central" = q3)
   return(table)
 }

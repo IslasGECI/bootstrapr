@@ -1,5 +1,3 @@
-library("tidyverse")
-
 unos <- tibble::tibble("interes" = c(1, 1, 1))
 function_uno <- function(datos) {
   return(1)

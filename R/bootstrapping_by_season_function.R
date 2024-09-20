@@ -1,5 +1,3 @@
-library("tidyverse")
-
 bootstrapping_by_season <- function(data, applied_function, b = 2000) {
   set.seed(5)
   columns <- names(data)
@@ -11,9 +9,9 @@ bootstrapping_by_season <- function(data, applied_function, b = 2000) {
   for (i_season in seq(num_columns)) {
     season_statistic <- c()
     for (i_sample in seq(b)) {
-      sample <- data %>%
-        dplyr::filter(.data[[columns[1]]] == seasons[i_season]) %>%
-        dplyr::sample_n(n(), replace = T)
+      sample <- data |>
+        dplyr::filter(.data[[columns[1]]] == seasons[i_season]) |>
+        dplyr::sample_n(dplyr::n(), replace = T)
       statistical <- applied_function(sample[[2]])
       season_statistic <- append(season_statistic, statistical)
     }

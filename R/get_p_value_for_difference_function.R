@@ -1,5 +1,3 @@
-library(tidyverse)
-
 get_p_value_for_difference <- function(before_distribution, after_distribution) {
   validate_input(before_distribution, after_distribution)
   set.seed(5)
