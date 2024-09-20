@@ -7,7 +7,7 @@ bootstrapping_by_season <- function(data, applied_function, b = 2000) {
   num_columns <- length(seasons)
   exit <- (matrix(rep(0, num_columns * b), ncol = num_columns))
   colnames(exit) <- seasons
-  exit <- as_tibble(exit)
+  exit <- tibble::as_tibble(exit)
   for (i_season in seq(num_columns)) {
     season_statistic <- c()
     for (i_sample in seq(b)) {

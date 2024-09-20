@@ -10,7 +10,7 @@ expect_bootsrapping_by_season_equal_df <- function(scalar, resampling_number, da
   n_col <- length(unique_sesons)
   output_matrix <- matrix(rep(scalar, resampling_number * n_col), ncol = n_col)
   colnames(output_matrix) <- unique_sesons
-  expected_df <- readr::as_tibble(output_matrix)
+  expected_df <- tibble::as_tibble(output_matrix)
   expect_equal(bootstrapping_by_season(datos, a_function, resampling_number), expected_df)
 }
 
