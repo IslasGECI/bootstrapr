@@ -2,9 +2,9 @@ make_cuantiles <- function(data, i) {
   alpha <- 0.05
   half_alpha <- alpha / 2
   quantiles <- dplyr::summarise(data,
-    "q1" = quantile(data[[i]], half_alpha),
-    "q3" = quantile(data[[i]], 0.5),
-    "q5" = quantile(data[[i]], 1 - half_alpha)
+    "q1" = quantile(data[[i]], half_alpha, na.rm = TRUE),
+    "q3" = quantile(data[[i]], 0.5, na.rm = TRUE),
+    "q5" = quantile(data[[i]], 1 - half_alpha, na.rm = TRUE)
   )
   return(quantiles)
 }
