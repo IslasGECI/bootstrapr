@@ -42,10 +42,9 @@ init_git:
 setup: clean install
 
 install:
+	R -e "devtools::install(dependencies = TRUE)" && \
 	R -e "devtools::document()" && \
-    R CMD build . && \
-    R CMD check bootstrapr_0.1.0.tar.gz && \
-    R CMD INSTALL bootstrapr_0.1.0.tar.gz
+	R -e "devtools::check(error_on = 'error')"
 
 tests:
 	Rscript -e "devtools::test(stop_on_failure = TRUE)"
