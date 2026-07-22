@@ -10,6 +10,15 @@ parameter](https://github.com/IslasGECI/bootstrapr/actions/workflows/actions.yml
 ![commits][commits_badge]
 ![R-version][R_badge]
 
+## Description
+
+`bootstrapr` provides tools for working with bootstrap resampling techniques in R. This package includes functions for calculating burrow density statistics and performing bootstrap analysis on ecological data.
+
+### Main functions
+
+- `make_filter_density()`: Calculates burrow density by dividing apparent activity burrows by quadrant area
+- `make_cuantiles()`: Computes bootstrap quantiles for statistical analysis
+
 ## Step to use
 
 
